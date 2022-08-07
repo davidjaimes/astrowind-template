@@ -1,0 +1,65 @@
+---
+import { IconSun, IconGithub, IconMenu } from "~/components/astro/icons";
+const { } = Astro.props;
+---
+
+<header class="dark:bg-slate-900 dark:border-b-0">
+	<div class="subheader">
+    	<div class="flex justify-between">
+      		<a class="flex items-center" href="/"><span class="dark:text-white">davidjaimes.com</span></a>
+    		<div class="flex items-center lg:hidden">
+        		<button type="button" class="button1-toggle-dark-mode dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700" onclick="window.toggleDarkMode()"><IconSun /></button>
+        		<button class="button-toggle-menu dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-gray-700" onclick="toggleMenu()"><IconMenu /></button>
+      		</div>
+    	</div>
+		<div class="menu hidden dark:text-slate-200" id="menu">
+			<ul class="menu-ul collapse collapsed">
+				<li><a class="menu-a dark:hover:text-white" href="/about">About</a></li>
+				<li><a class="menu-a dark:hover:text-white" href="/docs">Docs</a></li>
+				<li><a class="menu-a dark:hover:text-white" href="#/terms">Terms</a></li>
+			</ul>
+			<div class="hidden-div collapse collapsed">
+				<div class="hidden items-center mr-3 lg:flex">
+					<button type="button" class="hidden-button dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700" onclick="window.toggleDarkMode()"><IconSun /></button>
+					<a href="https://github.com/onwidget/astrowind" class="hidden-a dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"><IconGithub /></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<style>
+	header {
+		@apply fixed top-0 z-40 flex-none mx-auto w-full bg-white/90 backdrop-blur-sm border-b
+	}
+	.subheader {
+		@apply py-3 px-3 mx-auto w-full lg:flex lg:justify-between max-w-6xl lg:px-4
+	}
+	span {
+		@apply self-center ml-2 text-2xl font-extrabold text-gray-900 whitespace-nowrap
+	}
+	.button1-toggle-dark-mode {
+		@apply text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg text-sm p-2.5 inline-flex items-center
+	}
+	.button-toogle-menu {
+		@apply ml-1 text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg text-sm p-2.5 inline-flex items-center
+	}
+	.menu {
+		@apply items-center w-full lg:w-auto lg:flex text-gray-600
+	}
+	.menu-ul {
+		@apply flex flex-col py-2 lg:py-0 lg:flex-row lg:self-center w-full lg:w-auto
+	}
+	.menu-a {
+		@apply font-medium hover:text-gray-900 px-4 py-3 flex items-center transition duration-150 ease-in-out
+	}
+	.hidden-div {
+		@apply lg:self-center flex items-center mb-4 lg:mb-0
+	}
+	.hidden-button {
+		@apply text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg text-sm p-2.5 inline-flex items-center
+	}
+	.hidden-a {
+		@apply inline-block text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg text-sm p-2.5 mr-1
+	}
+</style>
